@@ -6,7 +6,7 @@ TMDB_API_KEY = '0cbbb073b67ccb4d98dfbe150348cc79'
 def get_movie_datas():
     total_data = []
 
-    for i in range(1, 10):
+    for i in range(1, 12):
         request_url = f"https://api.themoviedb.org/3/movie/popular?api_key={TMDB_API_KEY}&language=ko-KR&page={i}"
         movies = requests.get(request_url).json()
 
@@ -21,7 +21,8 @@ def get_movie_datas():
                     'overview': movie['overview'],
                     'poster_path': f"https://image.tmdb.org/t/p/w600_and_h900_bestv2/{movie['poster_path']}",
                     'genres': movie['genre_ids'],
-                    'vote_count': movie['vote_count']
+                    'vote_count': movie['vote_count'],
+                    'rate_average' : 0
                 }
 
                 data = {
@@ -38,7 +39,7 @@ def get_movie_datas():
 def get_genre_data():
     total_data = []
 
-    request_url = f"https://api.themoviedb.org/3/genre/movie/list?api_key={TMDB_API_KEY}"
+    request_url = f"https://api.themoviedb.org/3/genre/movie/list?api_key={TMDB_API_KEY}&language=ko-KR"
     genres = requests.get(request_url).json()
 
     for genre in genres['genres']:

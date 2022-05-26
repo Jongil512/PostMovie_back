@@ -3,133 +3,133 @@
         "pk": 28,
         "model": "movies.genre",
         "fields": {
-            "name": "Action"
+            "name": "액션"
         }
     },
     {
         "pk": 12,
         "model": "movies.genre",
         "fields": {
-            "name": "Adventure"
+            "name": "모험"
         }
     },
     {
         "pk": 16,
         "model": "movies.genre",
         "fields": {
-            "name": "Animation"
+            "name": "애니메이션"
         }
     },
     {
         "pk": 35,
         "model": "movies.genre",
         "fields": {
-            "name": "Comedy"
+            "name": "코미디"
         }
     },
     {
         "pk": 80,
         "model": "movies.genre",
         "fields": {
-            "name": "Crime"
+            "name": "범죄"
         }
     },
     {
         "pk": 99,
         "model": "movies.genre",
         "fields": {
-            "name": "Documentary"
+            "name": "다큐멘터리"
         }
     },
     {
         "pk": 18,
         "model": "movies.genre",
         "fields": {
-            "name": "Drama"
+            "name": "드라마"
         }
     },
     {
         "pk": 10751,
         "model": "movies.genre",
         "fields": {
-            "name": "Family"
+            "name": "가족"
         }
     },
     {
         "pk": 14,
         "model": "movies.genre",
         "fields": {
-            "name": "Fantasy"
+            "name": "판타지"
         }
     },
     {
         "pk": 36,
         "model": "movies.genre",
         "fields": {
-            "name": "History"
+            "name": "역사"
         }
     },
     {
         "pk": 27,
         "model": "movies.genre",
         "fields": {
-            "name": "Horror"
+            "name": "공포"
         }
     },
     {
         "pk": 10402,
         "model": "movies.genre",
         "fields": {
-            "name": "Music"
+            "name": "음악"
         }
     },
     {
         "pk": 9648,
         "model": "movies.genre",
         "fields": {
-            "name": "Mystery"
+            "name": "미스터리"
         }
     },
     {
         "pk": 10749,
         "model": "movies.genre",
         "fields": {
-            "name": "Romance"
+            "name": "로맨스"
         }
     },
     {
         "pk": 878,
         "model": "movies.genre",
         "fields": {
-            "name": "Science Fiction"
+            "name": "SF"
         }
     },
     {
         "pk": 10770,
         "model": "movies.genre",
         "fields": {
-            "name": "TV Movie"
+            "name": "TV 영화"
         }
     },
     {
         "pk": 53,
         "model": "movies.genre",
         "fields": {
-            "name": "Thriller"
+            "name": "스릴러"
         }
     },
     {
         "pk": 10752,
         "model": "movies.genre",
         "fields": {
-            "name": "War"
+            "name": "전쟁"
         }
     },
     {
         "pk": 37,
         "model": "movies.genre",
         "fields": {
-            "name": "Western"
+            "name": "서부"
         }
     }
 ]

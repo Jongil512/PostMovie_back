@@ -10,6 +10,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from .models import Review, Comment
 from movies.models import Movie
+from accounts.models import User
 from .serializers.review import ReviewListSerializer, ReviewSerializer
 from .serializers.comment import CommentSerializer
 
@@ -27,12 +28,20 @@ def review_list(request):
 
 @api_view(['POST'])
 def review_create(request, movie_pk):
-    user = request.user
+    username = request.user.username
+    user = get_object_or_404(User, username=username)
     movie = get_object_or_404(Movie, pk=movie_pk)
-    serializer = ReviewSerializer(data=request.data)
-    if serializer.is_valid(raise_exception=True):
-        serializer.save(user=user, movie=movie)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    if user.reviews.filter(movie=movie_pk).exists():
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+    else:
+        rank = request.data['rank']
+        avg = movie.rate_average * (movie.reviews.count())
+        movie.rate_average = (avg + float(rank)) / (movie.reviews.count() + 1)
+        movie.save()
+        serializer = ReviewSerializer(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save(user=user, movie=movie)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 @api_view(['GET', 'PUT', 'DELETE'])

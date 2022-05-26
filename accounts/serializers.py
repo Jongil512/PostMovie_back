@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from reviews.models import Review, Comment
+from movies.models import Movie
 
 class ProfileSerializer(serializers.ModelSerializer):
 
@@ -24,11 +25,17 @@ class ProfileSerializer(serializers.ModelSerializer):
             model = Comment
             fields = ('pk', 'content', 'review')
 
+    class UserSerializer(serializers.ModelSerializer):
+        
+        class Meta:
+            model = get_user_model()
+            fields = ('pk', 'username')
+
     like_reviews = ReviewSerializer(many=True, read_only=True)
     reviews = ReviewSerializer(many=True)
     comments = CommentSerializer(many=True)
+    followers = UserSerializer(many=True)
 
     class Meta:
         model = get_user_model()
-        fields = ('pk', 'username', 'email', 'like_reviews', 'reviews', 'comments')
-
+        fields = ('pk', 'username', 'email', 'like_reviews', 'reviews', 'comments', 'followers', 'followings', 'wishlist')

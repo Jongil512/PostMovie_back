@@ -5,4 +5,6 @@ app_name = 'accounts'
 
 urlpatterns = [
     path('profile/<username>/', views.profile),
+    path('follow/<username>/', views.follow),
+    path('wishlist/<int:movie_pk>/', views.wishlist),
 ]
